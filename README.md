@@ -1,48 +1,121 @@
-# Astro Starter Kit: Basics
+# Charlie Garcia Portfolio
+
+A modern, responsive portfolio built with [Astro](https://astro.build) featuring a theme toggle, timeline, and contact form.
+
+## 🚀 Development
+
+### Getting Started
 
 ```sh
-bun create astro@latest -- --template basics
+npm install      # Install dependencies
+npm run dev      # Start local dev server at http://localhost:4321
+npm run build    # Build for production
+npm run preview  # Preview the production build locally
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## ✅ Testing
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The project includes a comprehensive three-layer test suite:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### Run All Tests
 
-## 🚀 Project Structure
+```sh
+npm test
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+This runs unit tests, built-site assertions, and E2E tests in sequence.
 
-```text
+### Test Layers
+
+#### 1. Unit Tests (`npm run test:unit`)
+- **What**: Tests for the theme state management and store behavior
+- **Where**: `tests/unit/`
+- **Tools**: Vitest with jsdom
+- **Coverage**: Default theme selection, toggle transitions, localStorage persistence
+- **Watch mode**: `npm run test:watch`
+
+#### 2. Built Site Tests (`npm run test:site`)
+- **What**: Static HTML assertions on the built site
+- **Where**: `tests/site/`
+- **Tools**: Vitest + Cheerio
+- **Coverage**: Section structure, navigation links, form labels, accessibility attributes
+- **Requires**: Build runs first (`npm run build`)
+
+#### 3. E2E Browser Tests (`npm run test:e2e`)
+- **What**: Full user journeys in a real browser
+- **Where**: `tests/e2e/`
+- **Tools**: Playwright
+- **Coverage**: Theme toggle interactive behavior, persistence across reload, page visibility
+- **Dev server**: Runs at `http://127.0.0.1:4321` (auto-started if needed)
+
+### Testing Workflow
+
+For local development, use the watch mode:
+```sh
+npm run test:watch
+```
+
+This runs unit tests and re-runs on file changes.
+
+For pre-commit validation:
+```sh
+npm test    # Full suite
+```
+
+For isolated debugging:
+```sh
+npx vitest tests/unit/theme.test.ts           # Single unit test
+npx playwright test tests/e2e/home.spec.ts    # Single E2E test
+```
+
+## 📋 Project Structure
+
+```
 /
-├── public/
-│   └── favicon.svg
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/          # Images and static files
+│   ├── components/      # Astro components (Header, Footer, etc.)
+│   ├── layouts/         # Page layout wrapper
+│   ├── pages/           # Page routes (index.astro)
+│   ├── store/           # Nanostores state (theme)
+│   └── styles/          # Global CSS
+├── tests/
+│   ├── unit/            # Store and logic tests
+│   ├── site/            # Built HTML structure tests
+│   └── e2e/             # Browser interaction tests
+├── public/              # Static assets
+├── package.json         # Dependencies and scripts
+├── tsconfig.json        # TypeScript config
+├── astro.config.mjs     # Astro config
+├── vitest.config.ts     # Unit test runner config
+└── playwright.config.ts # E2E test runner config
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🎨 Features
 
-## 🧞 Commands
+- **Dark Mode Toggle**: Persists to localStorage and syncs across page reloads
+- **Responsive Design**: Built with Tailwind CSS
+- **Timeline**: Experience history with links
+- **Testimonies**: Animated carousel
+- **Contact Form**: Email and message inputs
+- **Social Links**: GitHub, LinkedIn, Email
 
-All commands are run from the root of the project, from a terminal:
+## 🛠️ Technology Stack
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+- **Framework**: Astro 6
+- **Styling**: TailwindCSS 4
+- **State**: Nanostores
+- **Testing**: Vitest + Playwright
+- **Type Safety**: TypeScript
 
-## 👀 Want to learn more?
+## 📝 Known Issues & Future Work
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Timeline dates have low contrast ratios (color-contrast a11y rule); fix text color or background
+- Contact form does not submit anywhere; wire to email service
+- Treadmill animation can be tested with visual regression tools once styling stabilizes
+
+## 📖 Further Reading
+
+- [Astro Documentation](https://docs.astro.build)
+- [Vitest Guide](https://vitest.dev)
+- [Playwright Testing](https://playwright.dev)

@@ -1,0 +1,15 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-sm">
+  <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#intro" class="font-semibold text-lg">CG</a>
+    <ul class="flex items-center gap-6 text-sm">
+      <li><a href="#experience" class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Experience</a></li>
+      <li><a href="#work" class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Work</a></li>
+      <li><a href="#contact" class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Contact</a></li>
+      <li><a href="/src/assets/Resume.pdf" download class="px-3 py-1.5 bg-[var(--color-text)] text-[var(--color-bg)] rounded text-sm font-medium hover:opacity-90">Resume</a></li>
+    </ul>
+    <ThemeToggle/>
+  </nav>
+</header>
