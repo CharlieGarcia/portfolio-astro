@@ -1,15 +1,134 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro"
+import ThemeToggle from "./ThemeToggle.astro";
 ---
-<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-sm">
-  <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-sm"
+>
+  <nav
+    class="hidden md:flex max-w-4xl mx-auto px-6 py-4 items-center justify-between"
+  >
     <a href="#intro" class="font-semibold text-lg">CG</a>
     <ul class="flex items-center gap-6 text-sm">
-      <li><a href="#experience" class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Experience</a></li>
-      <li><a href="#work" class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Work</a></li>
-      <li><a href="#contact" class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Contact</a></li>
-      <li><a href="/src/assets/Resume.pdf" download class="px-3 py-1.5 bg-[var(--color-text)] text-[var(--color-bg)] rounded text-sm font-medium hover:opacity-90">Resume</a></li>
+      <li>
+        <a
+          href="#experience"
+          class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+          >Experience</a
+        >
+      </li>
+      <li>
+        <a
+          href="#work"
+          class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+          >Work</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contact"
+          class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+          >Contact</a
+        >
+      </li>
+      <li>
+        <a
+          href="/src/assets/Resume.pdf"
+          download
+          class="px-3 py-1.5 bg-[var(--color-bg)] text-[var(--color-bg)] rounded text-sm font-medium hover:opacity-90"
+          >Resume</a
+        >
+      </li>
+      <ThemeToggle />
     </ul>
-    <ThemeToggle/>
+  </nav>
+
+  <nav
+    class="fixed w-full z-20 top-0 start-0 border-b border-default sm:block md:hidden"
+  >
+    <div
+      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 bg-[var(--color-bg)]"
+    >
+      <button
+        data-collapse-toggle="navbar-hamburger"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base hover:bg-neutral-tertiary hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+        aria-controls="navbar-hamburger"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          ><path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M5 7h14M5 12h14M5 17h14"></path></svg
+        >
+      </button>
+      <ThemeToggle />
+      <div class="hidden w-full" id="navbar-hamburger">
+        <ul
+          class="flex flex-col font-medium mt-4 pt-4 bg-[var(--color-bg)] space-y-2 border-t border-default"
+        >
+          <li>
+            <a
+              href="#experience"
+              class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#work"
+              class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+              >Work</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/assets/Resume.pdf"
+              download
+              class="text-[var(--color-muted)] hover:text-[var(--color-text)] rounded text-sm"
+              >Resume</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 </header>
+
+<script>
+  import { Collapse } from "flowbite";
+  import type { CollapseInterface } from "flowbite";
+
+  // set the target element that will be collapsed or expanded (eg. navbar menu)
+  const $targetEl: HTMLElement | null = document.getElementById("navbar-hamburger");
+
+  // optionally set a trigger element (eg. a button, hamburger icon)
+  const $triggerEl: HTMLElement | null = document.querySelector('[data-collapse-toggle="navbar-hamburger"]');
+
+  /*
+   * $targetEl: required
+   * $triggerEl: optional
+   */
+  const collapse: CollapseInterface = new Collapse(
+    $targetEl,
+    $triggerEl
+  );
+
+</script>

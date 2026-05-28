@@ -1,5 +1,5 @@
 <label
-  class="inline-flex items-center cursor-pointer z-10 absolute top-5 end-5"
+  class="inline-flex items-center cursor-pointer z-10"
   data-theme-toggle
 >
   <input type="checkbox" value="" class="sr-only peer">
@@ -13,7 +13,7 @@
 <script>
   import { syncTheme, toggleTheme, theme } from "../store/theme";
 
-  const checkbox = document.querySelector(
+  const checkboxes = document.querySelectorAll(
     '[data-theme-toggle] input[type="checkbox"]'
   );
   const textHeading = document.querySelector("[data-theme-toggle-label]");
@@ -21,8 +21,10 @@
   function syncToggleUi() {
     const isDarkMode = theme.get() === "dark";
 
-    if (checkbox instanceof HTMLInputElement) {
-      checkbox.checked = isDarkMode;
+    for (let checkbox of checkboxes) {
+      if (checkbox instanceof HTMLInputElement) {
+        checkbox.checked = isDarkMode;
+      }
     }
 
     if (textHeading) {
@@ -33,10 +35,12 @@
   syncTheme();
   syncToggleUi();
 
-  if (checkbox) {
-    checkbox.addEventListener("change", () => {
-      toggleTheme();
-      syncToggleUi();
-    });
+  if (checkboxes?.length) {
+    for (let checkbox of checkboxes) {
+      checkbox.addEventListener("change", () => {
+        toggleTheme();
+        syncToggleUi();
+      });
+    }
   }
   </script>
