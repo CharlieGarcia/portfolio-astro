@@ -7,10 +7,10 @@ A modern, responsive portfolio built with [Astro](https://astro.build) featuring
 ### Getting Started
 
 ```sh
-npm install      # Install dependencies
-npm run dev      # Start local dev server at http://localhost:4321
-npm run build    # Build for production
-npm run preview  # Preview the production build locally
+bun install      # Install dependencies
+bun run dev      # Start local dev server at http://localhost:4321
+bun run build    # Build for production
+bun run preview  # Preview the production build locally
 ```
 
 ## ✅ Testing
@@ -20,28 +20,28 @@ The project includes a comprehensive three-layer test suite:
 ### Run All Tests
 
 ```sh
-npm test
+bun test
 ```
 
 This runs unit tests, built-site assertions, and E2E tests in sequence.
 
 ### Test Layers
 
-#### 1. Unit Tests (`npm run test:unit`)
+#### 1. Unit Tests (`bun run test:unit`)
 - **What**: Tests for the theme state management and store behavior
 - **Where**: `tests/unit/`
 - **Tools**: Vitest with jsdom
 - **Coverage**: Default theme selection, toggle transitions, localStorage persistence
-- **Watch mode**: `npm run test:watch`
+- **Watch mode**: `bun run test:watch`
 
-#### 2. Built Site Tests (`npm run test:site`)
+#### 2. Built Site Tests (`bun run test:site`)
 - **What**: Static HTML assertions on the built site
 - **Where**: `tests/site/`
 - **Tools**: Vitest + Cheerio
 - **Coverage**: Section structure, navigation links, form labels, accessibility attributes
-- **Requires**: Build runs first (`npm run build`)
+- **Requires**: Build runs first (`bun run build`)
 
-#### 3. E2E Browser Tests (`npm run test:e2e`)
+#### 3. E2E Browser Tests (`bun run test:e2e`)
 - **What**: Full user journeys in a real browser
 - **Where**: `tests/e2e/`
 - **Tools**: Playwright
@@ -52,14 +52,14 @@ This runs unit tests, built-site assertions, and E2E tests in sequence.
 
 For local development, use the watch mode:
 ```sh
-npm run test:watch
+bun run test:watch
 ```
 
 This runs unit tests and re-runs on file changes.
 
 For pre-commit validation:
 ```sh
-npm test    # Full suite
+bun test    # Full suite
 ```
 
 For isolated debugging:
