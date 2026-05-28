@@ -9,4 +9,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://charliegarcia.github.io',
+  base: '/portfolio-astro'
 });
