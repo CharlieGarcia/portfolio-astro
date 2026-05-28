@@ -1,11 +1,92 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import SocialBar from "../components/SocialBar.astro";
+import Timeline from "../components/Timeline.astro";
+import Techstack from "../components/Techstack.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <Section id="intro" class="min-h-screen flex items-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-5xl font-bold mb-4">Charlie Garcia</h1>
+      <p class="text-sm font-medium text-[var(--color-accent)] mb-3 tracking-wide uppercase">Software Engineer</p>
+      <p class="text-xl text-[var(--color-muted)] mb-8">Building scalable web applications.</p>
+      <p class="text-xl text-[var(--color-muted)] mb-4">8+ years building high-performance web solutions with Python, Go, TypeScript, and React.</p>
+      <p class="text-lg text-[var(--color-muted)] mb-8">Located in Santiago de los Caballeros, Dominican Republic</p>
+      <div class="flex items-center gap-6 mb-10">
+        <SocialBar />
+      </div>
+      <Techstack />
+    </div>
+  </Section>
+
+  <Section id="experience">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-8">Experience</h2>
+      <Timeline />
+    </div>
+  </Section>
+
+  <Section id="work">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-8">Key Projects</h2>
+      <div class="grid gap-6">
+        <article class="p-6 bg-[var(--color-bg)] rounded-lg">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-lg font-medium">AI-Powered Product Finder</h3>
+            <span class="text-sm text-[var(--color-accent)]">AI/ML</span>
+          </div>
+          <p class="text-[var(--color-muted)] mb-4">
+            Built an intelligent product discovery system using Clay CMS that dynamically responds to user queries, improving search relevance and user engagement.
+          </p>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">React</span>
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">Clay CMS</span>
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">TypeScript</span>
+          </div>
+        </article>
+        <article class="p-6 bg-[var(--color-bg)] rounded-lg">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-lg font-medium">Edge Computing Services</h3>
+            <span class="text-sm text-[var(--color-accent)]">+Performance</span>
+          </div>
+          <p class="text-[var(--color-muted)] mb-4">
+            Developed high-performance edge services using Fastly Compute@Edge (Go), reducing latency and improving response times for global users.
+          </p>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">Go</span>
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">Fastly</span>
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">Edge Computing</span>
+          </div>
+        </article>
+        <article class="p-6 bg-[var(--color-bg)] rounded-lg">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-lg font-medium">WordPress to Custom CMS Migration</h3>
+            <span class="text-sm text-[var(--color-accent)]">Migration</span>
+          </div>
+          <p class="text-[var(--color-muted)] mb-4">
+            Led the migration from WordPress to a custom CMS, improving performance, flexibility, and maintainability across multiple content platforms.
+          </p>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">Node.js</span>
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">Express</span>
+            <span class="text-xs px-2 py-1 bg-[var(--color-border)] rounded">AWS Lambda</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="contact">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-3">Ready to work together?</h2>
+      <p class="text-[var(--color-muted)] mb-4">I'm currently available for new opportunities.</p>
+      <div class="flex flex-col sm:flex-row gap-4 text-sm">
+        <a href="mailto:ing.charlie.garcia@gmail.com" class="text-[var(--color-muted)] hover:text-[var(--color-text)]">ing.charlie.garcia@gmail.com</a>
+        <span class="text-[var(--color-muted)]">|</span>
+        <span class="text-[var(--color-muted)]">+1 (849) 876-1283</span>
+      </div>
+    </div>
+  </Section>
 </Layout>

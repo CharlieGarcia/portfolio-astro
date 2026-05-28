@@ -1,0 +1,34 @@
+---
+import TechStackItem from "./TechStackItem.astro";
+import React from "./icons/React.astro";
+import TypeScript from "./icons/Typescript.astro";
+import Javascript from "./icons/Javascript.astro";
+import Go from "./icons/Go.astro";
+import NodeJS from "./icons/Nodejs.astro";
+import NextJS from "./icons/Nextjs.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import AWS from "./icons/AWS.astro";
+import Python from "./icons/Python.astro";
+import Elasticsearch from "./icons/Elasticsearch.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+
+const techstack = [
+  { name: "React", icon: React },
+  { name: "Next.js", icon: NextJS },
+  { name: "TypeScript", icon: TypeScript },
+  { name: "JavaScript", icon: Javascript },
+  { name: "Python", icon: Python },
+  { name: "Go", icon: Go },
+  { name: "Node.js", icon: NodeJS },
+  { name: "Astro", icon: AstroIcon },
+  { name: "AWS", icon: AWS },
+  { name: "Elasticsearch", icon: Elasticsearch },
+  { name: "PostgreSQL", icon: PostgreSQL },
+];
+---
+
+<div class="flex flex-wrap gap-3">
+  {techstack.map((tech) => (
+    <TechStackItem name={tech.name} icon={tech.icon} />
+  ))}
+</div>

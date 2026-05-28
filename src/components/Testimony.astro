@@ -1,0 +1,16 @@
+<div class="relative flex flex-col gap-4 w-lg justify-center items-center">
+  <div class="flex flex-row-reverse gap-2 justify-center items-center">
+    <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 text-2xl">
+      &ldquo;
+      {Astro.props.quote}
+      &rdquo;
+    </blockquote>
+    <img
+    src=`${Astro.props.image?.src ? Astro.props.image.src : "/src/assets/charlie_garcia.jpg"}`
+    alt=`${Astro.props.image?.alt ? Astro.props.image.alt : "Testimony author image"}`
+    class="w-24 h-24 rounded-full"
+    />
+  </div>
+  {Astro.props.readMore ? <a href={Astro.props.readMore} class="text-blue-500 hover:underline">Read more</a> : null}
+  <strong class="text-lg"><em>{Astro.props.author}</em></strong>
+</div>

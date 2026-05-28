@@ -1,0 +1,46 @@
+<label
+  class="inline-flex items-center cursor-pointer z-10"
+  data-theme-toggle
+>
+  <input type="checkbox" value="" class="sr-only peer">
+  <div class="relative w-9 h-5 bg-neutral-quaternary ring-1 rounded-full peer peer-checked:after:translate-x-full dark:ring-white rtl:peer-checked:after:-translate-x-full peer-checked:after:border-buffer after:content-[''] after:absolute after:top-[2px] after:start-[2px] dark:ring-1 after:bg-black dark:after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-black/50"></div>
+  <span
+    class="select-none ms-3 text-sm font-medium text-heading dark:text-white"
+    data-theme-toggle-label
+  >Light Mode</span>
+</label>
+
+<script>
+  import { syncTheme, toggleTheme, theme } from "../store/theme";
+
+  const checkboxes = document.querySelectorAll(
+    '[data-theme-toggle] input[type="checkbox"]'
+  );
+  const textHeading = document.querySelector("[data-theme-toggle-label]");
+
+  function syncToggleUi() {
+    const isDarkMode = theme.get() === "dark";
+
+    for (let checkbox of checkboxes) {
+      if (checkbox instanceof HTMLInputElement) {
+        checkbox.checked = isDarkMode;
+      }
+    }
+
+    if (textHeading) {
+      textHeading.textContent = isDarkMode ? "Dark Mode" : "Light Mode";
+    }
+  }
+
+  syncTheme();
+  syncToggleUi();
+
+  if (checkboxes?.length) {
+    for (let checkbox of checkboxes) {
+      checkbox.addEventListener("change", () => {
+        toggleTheme();
+        syncToggleUi();
+      });
+    }
+  }
+  </script>

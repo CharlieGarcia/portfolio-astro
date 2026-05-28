@@ -1,0 +1,191 @@
+---
+import Testimony from "./Testimony.astro";
+---
+
+<style>
+  @keyframes left-to-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes right-to-left {
+    0% {
+      transform: translateX(0);
+    }
+    
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .treadmill-container {
+    overflow: hidden;
+    width: 200%;
+    padding: 20px 0;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    transform: translateX(-20%);
+  }
+
+  .treadmill-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .treadmill-track.left-right {
+    animation: left-to-right 20s linear infinite;
+  }
+  
+  .treadmill-track.right-left {
+    animation: right-to-left 20s linear infinite;
+  }
+
+  .treadmill-item {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .treadmill-container:hover .treadmill-track {
+    animation-play-state: paused;
+  }
+</style>
+<div class="treadmill-container">
+  <div class=`treadmill-track ${Astro.props.direction || "left-right"}`>
+    <div class="treadmill-item">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <!-- Duplicated content -->
+    <div class="treadmill-item" aria-hidden="true">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item" aria-hidden="true">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item" aria-hidden="true">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item" aria-hidden="true">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+    <div class="treadmill-item" aria-hidden="true">
+      <Testimony
+        quote="Charlie is an exceptional developer who consistently delivers high-quality
+        work. His attention to detail and problem-solving skills are impressive. I highly
+        recommend him for any project."
+        author="John Doe, CEO of Tech Company"
+        image={{
+          src: "/src/assets/charlie_garcia.jpg",
+          alt: "Charlie Garcia Image",
+        }}
+      />
+    </div>
+  </div>
+</div>
